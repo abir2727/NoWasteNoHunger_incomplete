@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1029142091111",
+    "firebase_url": "https://nowastenohunger-1cedb.firebaseio.com",
+    "project_id": "nowastenohunger-1cedb",
+    "storage_bucket": "nowastenohunger-1cedb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029142091111:android:e30e1bd2d4546aaca1cbc2",
+        "android_client_info": {
+          "package_name": "com.example.nowastenohunger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1029142091111-r93q7p84qaeffq1tvhfjl7122h3riiki.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nowastenohunger",
+            "certificate_hash": "f31e06c8fcb7df860f8e8bc271316bd558e198e0"
+          }
+        },
+        {
+          "client_id": "1029142091111-b89c5212p788900cbsfanln6su26jtes.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOmBvIFWIsVLXS2HtsSsQlNRtA-yHfWWw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1029142091111-b89c5212p788900cbsfanln6su26jtes.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
