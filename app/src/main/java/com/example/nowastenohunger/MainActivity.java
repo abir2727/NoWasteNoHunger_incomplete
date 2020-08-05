@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        signInProgressBar.setVisibility(View.VISIBLE);
+        //signInProgressBar.setVisibility(View.VISIBLE);
 
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -105,8 +105,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Intent i = new Intent(MainActivity.this, BottomNavigationMenuActivity.class);
                         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
-                        signInPasswordEditText.setText("");
-                        signInEmailEditText.setText("");
+                        finish();
+                        //signInPasswordEditText.setText("");
+                        //signInEmailEditText.setText("");
+
+                        signInProgressBar.setVisibility(View.VISIBLE);
                     }
                     else
                     {
