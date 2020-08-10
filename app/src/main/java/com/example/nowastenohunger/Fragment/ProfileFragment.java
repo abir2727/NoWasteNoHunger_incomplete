@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.nowastenohunger.Activity.EditProfileActivity;
 import com.example.nowastenohunger.Activity.OptionsActivity;
+import com.example.nowastenohunger.Class.UpdatedName;
 import com.example.nowastenohunger.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -44,6 +45,7 @@ public class ProfileFragment extends Fragment  implements View.OnClickListener {
         currentUserEmail = user.getEmail();
         currentUserID = user.getUid();
 
+        UpdatedName updatedName = new UpdatedName(currentUserID);
 
         profileEmail = (TextView) view.findViewById(R.id.showEmail);
         profileName = (TextView) view.findViewById(R.id.showName);
