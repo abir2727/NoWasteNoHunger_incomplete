@@ -1,10 +1,9 @@
-package com.example.nowastenohunger;
+package com.example.nowastenohunger.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -15,9 +14,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
+import com.example.nowastenohunger.Class.Userinfo;
+import com.example.nowastenohunger.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class EditProfileActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener,View.OnClickListener {
 
+    //private String title=null,post=null;
     private EditText  fullName, number, address;
     private Spinner userType, cuisineType;
     private Button save;
@@ -93,6 +92,7 @@ public class EditProfileActivity extends AppCompatActivity implements AdapterVie
                 fullName.setText(username);
                 number.setText(userNumber);
                 address.setText(userAddress);
+
             }
 
             @Override

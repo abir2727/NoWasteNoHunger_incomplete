@@ -39,6 +39,36 @@
 
         </androidx.appcompat.widget.Toolbar>
 
+        <EditText
+            android:id="@+id/item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Enter Item name"
+            android:gravity="center_horizontal"
+            />
+
+        <EditText
+            android:id="@+id/amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Enter amount"
+            android:gravity="center_horizontal"
+            />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="post"
+            android:onClick="post"
+            />
+
+
+
     </com.google.android.material.appbar.AppBarLayout>
 
 </RelativeLayout>

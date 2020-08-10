@@ -1,4 +1,4 @@
-package com.example.nowastenohunger;
+package com.example.nowastenohunger.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,18 +12,21 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class SearchDonationsFragment extends Fragment
+import com.example.nowastenohunger.Activity.OptionsActivity;
+import com.example.nowastenohunger.R;
+
+public class MailFragment extends Fragment
 {
-    private TextView searchDonationsFragmentTextView;
+    private TextView mailFragmentTextView;
     private ImageView options;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_search_donations, container, false);
+        View view = inflater.inflate(R.layout.fragment_mail, container, false);
 
-        searchDonationsFragmentTextView = view.findViewById(R.id.searchDonationsFragmentTextView);
+        mailFragmentTextView = view.findViewById(R.id.mailFragmentTextView);
         options = view.findViewById(R.id.options);
 
         options.setOnClickListener(new View.OnClickListener() {
