@@ -1,4 +1,4 @@
-package com.example.nowastenohunger;
+package com.example.nowastenohunger.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.nowastenohunger.Activity.EditProfileActivity;
+import com.example.nowastenohunger.Activity.OptionsActivity;
+import com.example.nowastenohunger.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;

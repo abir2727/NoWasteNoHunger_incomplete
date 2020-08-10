@@ -1,8 +1,8 @@
-package com.example.nowastenohunger;
+package com.example.nowastenohunger.Class;
 
 public class Userinfo {
 
-    public String fullname, number, address, accountType, cuisineType;
+    public String fullname, number, address, accountType, cuisineType , Title , Post;
 
     public Userinfo() {
 
@@ -15,6 +15,9 @@ public class Userinfo {
         this.accountType = accountType;
         this.cuisineType = cuisineType;
     }
+
+
+
 
     public String getFullname() {
         return fullname;
@@ -55,5 +58,4 @@ public class Userinfo {
     public void setCuisineType(String number2) {
         this.cuisineType = cuisineType;
     }
-
 }

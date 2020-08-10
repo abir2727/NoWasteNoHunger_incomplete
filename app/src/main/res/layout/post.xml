@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.cardview.widget.CardView  xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="15dp"
+        android:elevation="0dp">
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:orientation="vertical"
+            android:background="@drawable/post_row">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="#FFFF"
+                android:id="@+id/post_user"
+                android:textSize="20dp"
+                android:text="Username"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textColor="#FFFF"
+                android:textSize="14dp"
+                android:id="@+id/post_time"
+                android:text="Time"/>
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFF"
+                android:id="@+id/description"
+                android:textSize="14dp"
+                android:text="Post"/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
