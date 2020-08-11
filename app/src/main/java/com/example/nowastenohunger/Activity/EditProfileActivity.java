@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.nowastenohunger.Class.UpdatedName;
 import com.example.nowastenohunger.Class.Userinfo;
 import com.example.nowastenohunger.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,6 +24,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class EditProfileActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener,View.OnClickListener {
 
@@ -68,6 +72,7 @@ public class EditProfileActivity extends AppCompatActivity implements AdapterVie
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
         currentUserID = user.getUid();
+        UpdatedName updatedName = new UpdatedName(currentUserID);
 
         save = (Button) findViewById(R.id.saveButton);
         fullName = (EditText) findViewById(R.id.showName);
@@ -128,7 +133,22 @@ public class EditProfileActivity extends AppCompatActivity implements AdapterVie
 
         else{
             Userinfo info = new Userinfo(name, contactNumber, area, accounttype, prefCuisineType);
-            databaseReference.child(currentUserID).setValue(info);
+
+            /////////////////// Modified Code /////////////////////////
+
+            Map<String, Object> updates = new HashMap<String,Object>();
+
+            databaseReference = databaseReference.child(currentUserID);
+            updates.put("accountType",info.getAccountType());
+            updates.put("address",info.getAddress());
+            updates.put("cuisineType",info.getCuisineType());
+            updates.put("fullname",info.getFullname());
+            updates.put("number",info.getNumber());
+
+            databaseReference.updateChildren(updates);
+
+            /////////////////// Modified Code /////////////////////////
+            //databaseReference.child(currentUserID).setValue(info);
 
             Toast.makeText(this, "Update Successful", Toast.LENGTH_SHORT).show();
         }

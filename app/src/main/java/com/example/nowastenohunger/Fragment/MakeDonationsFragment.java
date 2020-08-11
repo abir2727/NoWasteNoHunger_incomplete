@@ -16,8 +16,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.nowastenohunger.Class.UpdatedName;
 import com.example.nowastenohunger.Class.UserPost;
 import com.example.nowastenohunger.Activity.OptionsActivity;
+import com.example.nowastenohunger.Class.Userinfo;
 import com.example.nowastenohunger.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -45,9 +47,11 @@ public class MakeDonationsFragment extends Fragment
 
         final View view = inflater.inflate(R.layout.fragment_make_donations, container, false);
 
-        auth = FirebaseAuth.getInstance();
+       /* auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
-        currentUserID = user.getUid();
+        currentUserID = user.getUid();*/
+        currentUserID = UpdatedName.getUsername();
+        System.out.println(currentUserID);
 
 
         makeDonationsFragmentTextView = view.findViewById(R.id.makeDonationsFragmentTextView);
