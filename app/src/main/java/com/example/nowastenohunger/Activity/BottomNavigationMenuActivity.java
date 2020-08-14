@@ -1,16 +1,18 @@
-package com.example.nowastenohunger;
+package com.example.nowastenohunger.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
+import com.example.nowastenohunger.Fragment.MailFragment;
+import com.example.nowastenohunger.Fragment.MakeDonationsFragment;
+import com.example.nowastenohunger.Fragment.ProfileFragment;
+import com.example.nowastenohunger.Fragment.SearchDonationsFragment;
+import com.example.nowastenohunger.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
 
 public class BottomNavigationMenuActivity extends AppCompatActivity {
 
