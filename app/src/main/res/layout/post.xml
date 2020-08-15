@@ -25,6 +25,7 @@
                 android:id="@+id/post_user"
                 android:textSize="20dp"
                 android:text="Username"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -33,6 +34,7 @@
                 android:textSize="14dp"
                 android:id="@+id/post_time"
                 android:text="Time"/>
+
             <TextView
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
@@ -42,6 +44,7 @@
                 android:id="@+id/description"
                 android:textSize="14dp"
                 android:text="Post"/>
+
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

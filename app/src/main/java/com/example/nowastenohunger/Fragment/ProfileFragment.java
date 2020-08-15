@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class ProfileFragment extends Fragment  implements View.OnClickListener {
+
+    //private ProgressBar progressBar;
     private TextView profileFragmentTextView;
     private ImageView options;
     private ImageView editButton;
@@ -47,6 +50,7 @@ public class ProfileFragment extends Fragment  implements View.OnClickListener {
 
         UpdatedName updatedName = new UpdatedName(currentUserID);
 
+        //progressBar = view.findViewById(R.id.fragmentsProgressBar);
         profileEmail = (TextView) view.findViewById(R.id.showEmail);
         profileName = (TextView) view.findViewById(R.id.showName);
         profileNumber = (TextView) view.findViewById(R.id.showNumber);
@@ -62,17 +66,20 @@ public class ProfileFragment extends Fragment  implements View.OnClickListener {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                String username = String.valueOf(dataSnapshot.child("fullname").getValue());
-                String userNumber = String.valueOf(dataSnapshot.child("number").getValue());
-                String userAddress = String.valueOf(dataSnapshot.child("address").getValue());
-                String userAccountType = String.valueOf(dataSnapshot.child("accountType").getValue());
-                String userPrefCuisine = String.valueOf(dataSnapshot.child("cuisineType").getValue());
+                if(dataSnapshot.exists()) {
 
-                profileName.setText(username);
-                profileNumber.setText(userNumber);
-                profileAddress.setText(userAddress);
-                profileAccountType.setText(userAccountType);
-                profileCuisineType.setText(userPrefCuisine);
+                    String username = String.valueOf(dataSnapshot.child("fullname").getValue());
+                    String userNumber = String.valueOf(dataSnapshot.child("number").getValue());
+                    String userAddress = String.valueOf(dataSnapshot.child("address").getValue());
+                    String userAccountType = String.valueOf(dataSnapshot.child("accountType").getValue());
+                    String userPrefCuisine = String.valueOf(dataSnapshot.child("cuisineType").getValue());
+
+                    profileName.setText(username);
+                    profileNumber.setText(userNumber);
+                    profileAddress.setText(userAddress);
+                    profileAccountType.setText(userAccountType);
+                    profileCuisineType.setText(userPrefCuisine);
+                }
             }
 
             @Override
