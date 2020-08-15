@@ -26,7 +26,7 @@ public class MailFragment extends Fragment
 
         View view = inflater.inflate(R.layout.fragment_mail, container, false);
 
-        mailFragmentTextView = view.findViewById(R.id.mailFragmentTextView);
+        mailFragmentTextView = view.findViewById(R.id.notifyFragmentTextView);
         options = view.findViewById(R.id.options);
 
         options.setOnClickListener(new View.OnClickListener() {

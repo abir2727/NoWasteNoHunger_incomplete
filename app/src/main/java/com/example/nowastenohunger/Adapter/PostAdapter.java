@@ -59,13 +59,17 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
         {
             holder.description.setVisibility(View.VISIBLE);
             holder.description.setText(post.getPost());
-            holder.fullname.setText(post.getfullname());
             holder.time.setText(post.getTime());
+            holder.fullname.setText(post.getfullname());
+
+            /*if(post.getfullname()==" ")
+                holder.fullname.setText("Unknown User");
+            else
+                holder.fullname.setText(post.getfullname());*/
+
         }
 
         databaseReference =  FirebaseDatabase.getInstance().getReference("Users");
-
-
 
     }
 
