@@ -5,15 +5,25 @@ package com.example.nowastenohunger.Class;
 */
 public class UserPost
 {
-    String item,amount;
+
+    String item,amount,userID;
 
     public UserPost() {
     }
 
-    public UserPost(String item, String amount)
+    public UserPost(String item, String amount, String userID)
     {
         this.item = item;
         this.amount = amount;
+        this.userID = userID;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getItem() {

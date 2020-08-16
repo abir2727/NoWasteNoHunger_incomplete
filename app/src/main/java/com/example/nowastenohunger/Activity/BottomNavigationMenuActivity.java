@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.MenuItem;
@@ -67,7 +66,7 @@ public class BottomNavigationMenuActivity extends AppCompatActivity {
                 case R.id.searchDonations:
                     selectedFragment = new SearchDonationsFragment();
                     break;
-                case R.id.notifications:
+                case R.id.contactus:
                     selectedFragment = new MailFragment();
                     break;
             }
