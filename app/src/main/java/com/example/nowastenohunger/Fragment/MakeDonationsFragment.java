@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.nowastenohunger.Activity.EditProfileActivity;
+import com.example.nowastenohunger.Class.Post;
 import com.example.nowastenohunger.Class.UpdatedName;
 import com.example.nowastenohunger.Class.UserPost;
 import com.example.nowastenohunger.Activity.OptionsActivity;
@@ -124,14 +125,15 @@ public class MakeDonationsFragment extends Fragment
 
                     }
 
-                    UserPost post = new UserPost(Item,Amount);
+
                     databaseReference = databaseReference.child(currentUserID);
+
                     String currentTime = java.text.DateFormat.getDateTimeInstance().format(new Date());
 
-                    String Post = "Has "+ Amount + " " + Item + " left .";
+                    String post = "Has "+ Amount + " " + Item + " left .";
 
                     final Map<String, Object> updates = new HashMap<String,Object>();
-                    updates.put("post",Post);
+                    updates.put("post",post);
                     updates.put("time",currentTime);
 
                     databaseReference.updateChildren(updates);

@@ -10,9 +10,9 @@
         android:icon="@drawable/ic_make_donations"
         android:title="Donate" />
     <item
-        android:id="@+id/notifications"
-        android:icon="@android:drawable/ic_popup_reminder"
-        android:title="Notifications" />
+        android:id="@+id/contactus"
+        android:icon="@android:drawable/ic_dialog_email"
+        android:title="Contact Us" />
     <item
         android:id="@+id/userProfile"
         android:icon="@drawable/ic_user_profile"
