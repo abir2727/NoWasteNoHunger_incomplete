@@ -2,25 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:icon="@drawable/ic_user_profile"
-        android:id="@+id/userProfile"
-        android:title="Profile"/>
-
-    <item
-        android:icon="@drawable/ic_search_donations"
         android:id="@+id/searchDonations"
-        android:title="Search Donations"/>
-
+        android:icon="@drawable/ic_search_donations"
+        android:title="Search Donations" />
     <item
-        android:icon="@drawable/ic_make_donations"
         android:id="@+id/makeDonations"
-        android:title="Donate"/>
-
+        android:icon="@drawable/ic_make_donations"
+        android:title="Donate" />
     <item
-        android:icon="@drawable/ic_mail"
-        android:id="@+id/contactUs"
-        android:title="Contact Us"/>
-
+        android:id="@+id/contactus"
+        android:icon="@android:drawable/ic_dialog_email"
+        android:title="Contact Us" />
+    <item
+        android:id="@+id/userProfile"
+        android:icon="@drawable/ic_user_profile"
+        android:title="Profile" />
 
 
 </menu>

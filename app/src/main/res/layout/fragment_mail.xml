@@ -23,7 +23,7 @@
                     android:layout_height="wrap_content"
                     android:text="Contact Us"
                     android:textSize="25sp"
-                    android:id="@+id/mailFragmentTextView"
+                    android:id="@+id/notifyFragmentTextView"
                     android:textColor="@android:color/white"/>
 
                 <ImageView
@@ -40,5 +40,64 @@
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/bg_round">
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/to"
+            android:text="To :"
+            android:textSize="20sp"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etTo"
+            android:text="insta.aid.team@gmail.com"
+            android:textSize="20sp"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <EditText
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="165dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etsubject"
+        android:hint="Subject"
+        android:padding="10dp"
+        android:background="@drawable/bg_round"/>
+    <EditText
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="230dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:id="@+id/etmessage"
+        android:hint="Write Your Issues Here "
+        android:padding="10dp"
+        android:gravity="top"
+        android:background="@drawable/bg_round"/>
+    <Button
+        android:layout_marginTop="650dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btsend"
+        android:textSize="25sp"
+       android:layout_marginLeft="160dp"
+        android:textColor="#ffff"
+        android:text="Send"
+        android:padding="10dp"
+        android:background="@drawable/bg_round_btn"
+
+        />
 
 </RelativeLayout>

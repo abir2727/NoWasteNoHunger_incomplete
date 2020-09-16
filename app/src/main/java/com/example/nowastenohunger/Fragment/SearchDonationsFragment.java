@@ -39,6 +39,7 @@ public class SearchDonationsFragment extends Fragment {
     private FirebaseUser user;
     private String currentUserID;
     private List<Post>postList;
+    private List<String> imageURLList;
     private List<String>Users;
 
     @Override
@@ -56,7 +57,8 @@ public class SearchDonationsFragment extends Fragment {
         recyclerView.setLayoutManager(linearLayout);
 
         postList = new ArrayList<>();
-        postAdapter = new PostAdapter(getContext(),postList);
+        imageURLList = new ArrayList<>();
+        postAdapter = new PostAdapter(getContext(),postList, imageURLList);
         recyclerView.setAdapter(postAdapter);
 
         readPosts();  /* This method was used to check which user has 'post' key in Database. */
@@ -81,9 +83,14 @@ public class SearchDonationsFragment extends Fragment {
                 postList.clear();
                 for (DataSnapshot postsnapshot : dataSnapshot.getChildren())
                 {
+
                     Post post= postsnapshot.getValue(Post.class);
-                        if(post.getPost()!=null)
+                    System.out.println(post.getfullname());
+                    System.out.println(post.getContact());
+                        if(post.getPost()!=null) {
                             postList.add(post);
+                            imageURLList.add(postsnapshot.getKey());
+                        }
                 }
 
                 postAdapter.notifyDataSetChanged();
