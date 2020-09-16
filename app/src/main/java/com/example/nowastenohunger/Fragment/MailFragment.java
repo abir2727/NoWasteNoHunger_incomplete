@@ -47,11 +47,13 @@ public class MailFragment extends Fragment
 
         View view = inflater.inflate(R.layout.fragment_mail, container, false);
 
+
         auth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
         user = auth.getCurrentUser();
         currentUserEmail = user.getEmail();
         currentUserID = user.getUid();
+
 
         mailFragmentTextView = view.findViewById(R.id.notifyFragmentTextView);
         options = view.findViewById(R.id.options);

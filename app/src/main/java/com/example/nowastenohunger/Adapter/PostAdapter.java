@@ -6,12 +6,18 @@ package com.example.nowastenohunger.Adapter;
  */
 
 import android.content.Context;
+update/modified2
 import android.content.Intent;
+
+
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.Button;
+
+
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,7 +27,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nowastenohunger.Class.Post;
 import com.example.nowastenohunger.Class.UserPost;
+
 import com.example.nowastenohunger.Class.Userinfo;
+
+
 import com.example.nowastenohunger.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -31,7 +40,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
 import com.google.firebase.database.ValueEventListener;
+
+
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
@@ -67,7 +79,11 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
         final Post post = mPost.get(position);
+
+        Post post = mPost.get(position);
+
         String imageURL = imageList.get(position);
 
         if(post.getPost().equals(""))
@@ -80,6 +96,7 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
             holder.description.setText(post.getPost());
             holder.time.setText(post.getTime());
             holder.fullname.setText(post.getfullname());
+
            // holder.contact.setText(post.getContact());
             final String name = post.getfullname();
 
@@ -90,6 +107,24 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
 
                     //// The work of Buttons in post can be done here.
+
+
+            StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+            StorageReference profileReference = storageReference.child("Users/" + imageURL + "/ProfileImage.jpg");
+            profileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    Picasso.get().load(uri).into(holder.profileImage);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+
+                }
+            });
+
+
+        }
 
 
                     Toast.makeText(mContext,name,Toast.LENGTH_SHORT).show();
@@ -113,6 +148,7 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
         }
 
+
         databaseReference =  FirebaseDatabase.getInstance().getReference("Users");
 
     }
@@ -125,9 +161,14 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder
     {
 
+
         public TextView fullname,description,time,contact;
         public ImageView profileImage;
         public Button donatebtn;
+
+        public TextView fullname,description,time;
+        public ImageView profileImage;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -137,6 +178,7 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
             description = itemView.findViewById(R.id.description);
             time = itemView.findViewById(R.id.post_time);
             profileImage = itemView.findViewById(R.id.post_profile_image);
+
             donatebtn = itemView.findViewById(R.id.donatebtn);
         }
 
