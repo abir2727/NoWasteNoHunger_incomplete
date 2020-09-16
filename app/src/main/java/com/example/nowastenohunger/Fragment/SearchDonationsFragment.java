@@ -85,6 +85,10 @@ public class SearchDonationsFragment extends Fragment {
                 {
 
                     Post post= postsnapshot.getValue(Post.class);
+
+                    System.out.println(post.getfullname());
+                    System.out.println(post.getContact());
+
                         if(post.getPost()!=null) {
                             postList.add(post);
                             imageURLList.add(postsnapshot.getKey());

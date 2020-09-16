@@ -7,12 +7,13 @@
         android:layout_marginLeft="3dp"
         android:layout_marginRight="3dp"
         app:cardUseCompatPadding="true"
+        app:cardBackgroundColor="@color/colorAccent"
         app:cardCornerRadius="15dp"
         android:elevation="0dp">
         <LinearLayout
 
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="170dp"
             android:orientation="vertical"
             android:background="@drawable/post_row">
 
@@ -27,6 +28,26 @@
                 android:textSize="20dp" />
 
             <TextView
+
+                android:id="@+id/Contact"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="5dp"
+                android:text=""
+
+                android:id="@+id/post_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
+                android:text="Time"
+
+                android:textColor="#FFFF"
+                android:textSize="14dp" />
+
+            <TextView
+
                 android:id="@+id/post_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -45,6 +66,27 @@
                 android:text="Post"
                 android:textColor="#FFFF"
                 android:textSize="14dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="300dp"
+                android:id="@+id/donatebtn"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bg_round"
+                android:textColor="#ffff"
+                android:text="Donate"/>
+
+
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Post"
+                android:textColor="#FFFF"
+                android:textSize="14dp" />
+
 
         </LinearLayout>
 
