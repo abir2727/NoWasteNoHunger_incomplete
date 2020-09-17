@@ -19,6 +19,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.nowastenohunger.Activity.SmsActivity;
 import com.example.nowastenohunger.Class.Post;
 import com.example.nowastenohunger.Class.UserPost;
 import com.example.nowastenohunger.Class.Userinfo;
@@ -45,7 +46,7 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
     public List<Post>mPost;
     public List<String>imageList;
 
-    String currentUserID;
+    String currentUserID, phoneNumberOfWhoPosted, messageToBeSent;
     private FirebaseAuth auth;
     private FirebaseUser firebaseUser;
     private  DatabaseReference databaseReference;
@@ -103,18 +104,22 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
             holder.fullname.setText(post.getfullname());
             holder.contact.setText(post.getContact());
             final String name = post.getfullname();
+            final String user_post = post.getPost();
+            final String user_phone = post.getContact();
 
 
             holder.donatebtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-
                     //// The work of Buttons in post can be done here.
-
-
-                    Toast.makeText(mContext,name,Toast.LENGTH_SHORT).show();
-
+                    Intent i = new Intent(mContext, SmsActivity.class);
+                    phoneNumberOfWhoPosted = user_phone;
+                    messageToBeSent = user_post;
+                    i.putExtra("p", phoneNumberOfWhoPosted);
+                    i.putExtra("m", messageToBeSent);
+                    mContext.startActivity(i);
+                    //Toast.makeText(mContext,user_post+user_phone,Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(mContext,name,Toast.LENGTH_SHORT).show();
                 }
             });
 

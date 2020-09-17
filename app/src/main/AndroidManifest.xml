@@ -3,6 +3,7 @@
     package="com.example.nowastenohunger">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--<activity android:name=".Fragment.MakePostFragment"></activity> -->
+        <activity android:name=".Activity.SmsActivity"></activity>
+        <!-- <activity android:name=".Fragment.MakePostFragment"></activity> -->
         <activity android:name=".Activity.MainActivity" />
         <activity android:name=".Activity.EditProfileActivity" />
         <activity android:name=".Activity.OptionsActivity" />
