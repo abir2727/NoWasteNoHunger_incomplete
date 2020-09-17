@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -17,6 +18,10 @@ import android.widget.Toast;
 import com.example.nowastenohunger.Class.UpdatedName;
 import com.example.nowastenohunger.Class.Userinfo;
 import com.example.nowastenohunger.R;
+import com.google.android.gms.tasks.OnCanceledListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -90,13 +95,16 @@ public class EditProfileActivity extends AppCompatActivity implements AdapterVie
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                String username = String.valueOf(dataSnapshot.child("fullname").getValue());
-                String userNumber = String.valueOf(dataSnapshot.child("number").getValue());
-                String userAddress = String.valueOf(dataSnapshot.child("address").getValue());
+                if(dataSnapshot.exists()) {
 
-                fullName.setText(username);
-                number.setText(userNumber);
-                address.setText(userAddress);
+                    String username = String.valueOf(dataSnapshot.child("fullname").getValue());
+                    String userNumber = String.valueOf(dataSnapshot.child("number").getValue());
+                    String userAddress = String.valueOf(dataSnapshot.child("address").getValue());
+
+                    fullName.setText(username);
+                    number.setText(userNumber);
+                    address.setText(userAddress);
+                }
 
             }
 
@@ -127,7 +135,7 @@ public class EditProfileActivity extends AppCompatActivity implements AdapterVie
         final String prefCuisineType = cuisineType.getSelectedItem().toString().trim();
 
         if (TextUtils.isEmpty(name) || TextUtils.isEmpty(contactNumber) || TextUtils.isEmpty(area) || TextUtils.isEmpty(accounttype) || TextUtils.isEmpty(prefCuisineType)){
-            Toast.makeText(this, "Please fill up all the fields"+currentUserID, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please fill up all the fields", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -147,10 +155,12 @@ public class EditProfileActivity extends AppCompatActivity implements AdapterVie
 
             databaseReference.updateChildren(updates);
 
+            Toast.makeText(this, "Update Successful", Toast.LENGTH_SHORT).show();
+
             /////////////////// Modified Code /////////////////////////
             //databaseReference.child(currentUserID).setValue(info);
+            //Toast.makeText(EditProfileActivity.this, "Update Successful", Toast.LENGTH_SHORT).show();
 
-            Toast.makeText(this, "Update Successful", Toast.LENGTH_SHORT).show();
         }
     }
 }
