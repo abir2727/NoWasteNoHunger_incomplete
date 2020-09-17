@@ -83,12 +83,11 @@ public class SearchDonationsFragment extends Fragment {
                 postList.clear();
                 for (DataSnapshot postsnapshot : dataSnapshot.getChildren())
                 {
-
+                    String number = postsnapshot.child("number").getValue().toString();
                     Post post= postsnapshot.getValue(Post.class);
-
+                    post.setContact(number);
                     System.out.println(post.getfullname());
-                    System.out.println(post.getContact());
-
+                    System.out.println(post.getTime());
                         if(post.getPost()!=null) {
                             postList.add(post);
                             imageURLList.add(postsnapshot.getKey());
