@@ -68,7 +68,7 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        databaseReference =  FirebaseDatabase.getInstance().getReference();
+        databaseReference =  FirebaseDatabase.getInstance().getReference("Users");
         Post post = mPost.get(position);
         String id ;
         id = firebaseUser.getUid();
@@ -106,18 +106,23 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
             final String name = post.getfullname();
             final String user_post = post.getPost();
             final String user_phone = post.getContact();
+            final  String user_id = post.getUID();
 
 
             holder.donatebtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //// The work of Buttons in post can be done here.
+                    //Toast.makeText(mContext,/*"An SMS has been sent to your account."*/user_id,Toast.LENGTH_SHORT).show();
+
                     Intent i = new Intent(mContext, SmsActivity.class);
                     phoneNumberOfWhoPosted = user_phone;
                     messageToBeSent = user_post;
                     i.putExtra("p", phoneNumberOfWhoPosted);
                     i.putExtra("m", messageToBeSent);
                     mContext.startActivity(i);
+                    databaseReference.child(user_id).child("post").removeValue();
+
                     //Toast.makeText(mContext,user_post+user_phone,Toast.LENGTH_SHORT).show();
                     //Toast.makeText(mContext,name,Toast.LENGTH_SHORT).show();
                 }
