@@ -6,10 +6,12 @@ package com.example.nowastenohunger.Adapter;
  */
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +19,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.nowastenohunger.Activity.SmsActivity;
 import com.example.nowastenohunger.Class.Post;
 import com.example.nowastenohunger.Class.UserPost;
 import com.example.nowastenohunger.R;
@@ -42,6 +45,8 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
     public List<Post>mPost;
     public List<String>imageList;
 
+    String currentUserID, phoneNumberOfWhoPosted, messageToBeSent;
+    private FirebaseAuth auth;
     private FirebaseUser firebaseUser;
     private  DatabaseReference databaseReference;
 
@@ -62,8 +67,12 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        databaseReference =  FirebaseDatabase.getInstance().getReference("Users");
         Post post = mPost.get(position);
+        String id ;
+        id = firebaseUser.getUid();
         String imageURL = imageList.get(position);
+
 
         if(post.getPost().equals(""))
         {
@@ -76,6 +85,7 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
             holder.time.setText(post.getTime());
             holder.fullname.setText(post.getfullname());
             holder.show_location.setText(post.getPostlocation());
+            holder.contact.setText(post.getContact());
             //String loc = databaseReference.child("Users").child(imageURL).child("postlocation").toString();
 
            /* databaseReference.child("Users").child(imageURL).addValueEventListener(new ValueEventListener() {
@@ -94,6 +104,33 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
                 }
             });*/
+            final String name = post.getfullname();
+            final String user_post = post.getPost();
+            final String user_phone = post.getContact();
+            final  String user_id = post.getUID();
+
+
+            holder.donatebtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //// The work of Buttons in post can be done here.
+                    //Toast.makeText(mContext,/*"An SMS has been sent to your account."*/user_id,Toast.LENGTH_SHORT).show();
+                try
+                {
+                    Intent i = new Intent(mContext, SmsActivity.class);
+                    phoneNumberOfWhoPosted = user_phone;
+                    messageToBeSent = user_post;
+                    i.putExtra("p", phoneNumberOfWhoPosted);
+                    i.putExtra("m", messageToBeSent);
+                    mContext.startActivity(i);
+                    databaseReference.child(user_id).child("post").removeValue();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                    //Toast.makeText(mContext,user_post+user_phone,Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(mContext,name,Toast.LENGTH_SHORT).show();
+                }
+            });
 
             StorageReference storageReference = FirebaseStorage.getInstance().getReference();
             StorageReference profileReference = storageReference.child("Users/" + imageURL + "/ProfileImage.jpg");
@@ -111,20 +148,22 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
         }
 
-        databaseReference =  FirebaseDatabase.getInstance().getReference("Users");
+        //databaseReference =  FirebaseDatabase.getInstance().getReference("Users");
 
     }
 
     @Override
     public int getItemCount() {
+        System.out.println(mPost.size());
         return mPost.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder
     {
 
-        public TextView fullname,description,time,show_location;
+        public TextView fullname,description,time,show_location,contact;
         public ImageView profileImage;
+        public Button donatebtn;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -134,6 +173,8 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
             time = itemView.findViewById(R.id.post_time);
             show_location=itemView.findViewById(R.id.post_location);
             profileImage = itemView.findViewById(R.id.post_profile_image);
+            contact = itemView.findViewById(R.id.Contact);
+            donatebtn = itemView.findViewById(R.id.donatebtn);
         }
     }
 

@@ -170,9 +170,10 @@ public class MakeDonationsFragment extends Fragment
                                 //Log.e(TAG,"Geocoding Failure: " + throwable.getMessage());
                             }
                         });
-                    } catch (ServicesException servicesException) {
+                    } catch (Exception e) {
                         //Logd.e(TAG,"Error geocoding: " + servicesException.toString());
-                        servicesException.printStackTrace();
+                        //Toast.makeText(getContext(), "Location not confirmed", Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
                     }
                 }
 

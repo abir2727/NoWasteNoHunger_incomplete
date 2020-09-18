@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.nowastenohunger">
 
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
@@ -14,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activity.MapsActivity"></activity>
+        <activity android:name=".Activity.SmsActivity"></activity>
         <!-- <activity android:name=".Fragment.MakePostFragment"></activity> -->
         <activity android:name=".Activity.MainActivity" />
         <activity android:name=".Activity.EditProfileActivity" />
