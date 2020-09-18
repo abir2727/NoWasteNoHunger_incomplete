@@ -14,11 +14,29 @@
         android:background="@color/colorPrimary"/>
 
     <TextView
+        android:id="@+id/aboutTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="25sp"
+        android:text="About"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp" />
+
+    <TextView
         android:id="@+id/helpLineTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="25sp"
-        android:text="Help Line: +8801000000000"
+        android:text="Call Help Line"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/creditsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="25sp"
+        android:text="Credits"
         android:textColor="@color/colorPrimary"
         android:textSize="25sp" />
 
