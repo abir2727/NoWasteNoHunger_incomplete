@@ -24,8 +24,11 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
@@ -72,6 +75,25 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
             holder.description.setText(post.getPost());
             holder.time.setText(post.getTime());
             holder.fullname.setText(post.getfullname());
+            holder.show_location.setText(post.getPostlocation());
+            //String loc = databaseReference.child("Users").child(imageURL).child("postlocation").toString();
+
+           /* databaseReference.child("Users").child(imageURL).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                    if(dataSnapshot.exists()) {
+                        String userAddress = String.valueOf(dataSnapshot.child("postlocation").getValue());
+
+                        holder.show_location.setText(userAddress);
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });*/
 
             StorageReference storageReference = FirebaseStorage.getInstance().getReference();
             StorageReference profileReference = storageReference.child("Users/" + imageURL + "/ProfileImage.jpg");
@@ -101,7 +123,7 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder
     {
 
-        public TextView fullname,description,time;
+        public TextView fullname,description,time,show_location;
         public ImageView profileImage;
 
         public ViewHolder(@NonNull View itemView) {
@@ -110,6 +132,7 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
             fullname =  itemView.findViewById(R.id.post_user);
             description = itemView.findViewById(R.id.description);
             time = itemView.findViewById(R.id.post_time);
+            show_location=itemView.findViewById(R.id.post_location);
             profileImage = itemView.findViewById(R.id.post_profile_image);
         }
     }

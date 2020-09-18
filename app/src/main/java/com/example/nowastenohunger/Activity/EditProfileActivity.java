@@ -156,6 +156,7 @@ public class EditProfileActivity extends AppCompatActivity implements AdapterVie
             databaseReference.updateChildren(updates);
 
             Toast.makeText(this, "Update Successful", Toast.LENGTH_SHORT).show();
+            finish();
 
             /////////////////// Modified Code /////////////////////////
             //databaseReference.child(currentUserID).setValue(info);
