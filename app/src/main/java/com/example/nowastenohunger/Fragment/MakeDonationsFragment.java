@@ -57,11 +57,12 @@ public class MakeDonationsFragment extends Fragment
 
         final View view = inflater.inflate(R.layout.fragment_make_donations, container, false);
 
-       /* auth = FirebaseAuth.getInstance();
+        auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
-        currentUserID = user.getUid();*/
-        currentUserID = UpdatedName.getUsername();
+        currentUserID = user.getUid();
+        // currentUserID = UpdatedName.getUsername();
         System.out.println(currentUserID);
+
 
         makeDonationsFragmentTextView = view.findViewById(R.id.makeDonationsFragmentTextView);
         options = view.findViewById(R.id.options);
