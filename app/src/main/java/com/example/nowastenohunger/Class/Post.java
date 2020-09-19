@@ -8,15 +8,24 @@ package com.example.nowastenohunger.Class;
 
 public class Post {
 
-    String post,fullname,time,UID,contact;
+    String post,fullname,time,UID,contact,postlocation;
 
-    public Post(String post, String fullname, String time, String UID, String contact)
+    public String getPostlocation() {
+        return postlocation;
+    }
+
+    public void setPostlocation(String postlocation) {
+        this.postlocation = postlocation;
+    }
+
+    public Post(String post, String fullname, String time, String UID, String contact, String postlocation)
     {
         this.post = post;
         this.fullname = fullname;
         this.time = time;
         this.UID = UID;
         this.contact = contact;
+        this.postlocation=postlocation;
     }
 
     public Post() {
