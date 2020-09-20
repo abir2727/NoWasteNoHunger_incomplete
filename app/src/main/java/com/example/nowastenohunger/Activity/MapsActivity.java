@@ -3,6 +3,7 @@ package com.example.nowastenohunger.Activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.location.LocationManagerCompat;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.LocaleList;
 import android.util.Log;
@@ -100,6 +102,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
 
+        isLocationEnabled();
+
         startButton.setOnClickListener(this);
 
         auth = FirebaseAuth.getInstance();
@@ -154,6 +158,20 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             servicesException.printStackTrace();
         }
     }*/
+
+    private LocationManager locationManager ;
+    protected void isLocationEnabled(){
+       // Intent intent = new Intent(this,MapsActivity.class);
+       // String le = this.LOCATION_SERVICE;
+        locationManager = (LocationManager) getSystemService(this.LOCATION_SERVICE);
+        if(!locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)){
+            //return false;
+            Toast.makeText(this, "Turn your device location on", Toast.LENGTH_SHORT).show();
+            //finish();
+        } else {
+            //return true;
+        }
+    }
 
     @Override
     public void onMapReady(MapboxMap mapboxMap) {

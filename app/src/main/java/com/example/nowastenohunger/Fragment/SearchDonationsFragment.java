@@ -2,6 +2,7 @@ package com.example.nowastenohunger.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.nowastenohunger.Activity.BottomNavigationMenuActivity;
 import com.example.nowastenohunger.Activity.OptionsActivity;
+import com.example.nowastenohunger.Activity.SmsActivity;
 import com.example.nowastenohunger.Adapter.PostAdapter;
 import com.example.nowastenohunger.Class.Post;
 import com.example.nowastenohunger.R;
@@ -61,7 +64,6 @@ public class SearchDonationsFragment extends Fragment {
         imageURLList = new ArrayList<>();
         postAdapter = new PostAdapter(getContext(),postList, imageURLList);
         recyclerView.setAdapter(postAdapter);
-
         readPosts();  /* This method was used to check which user has 'post' key in Database. */
 
         options.setOnClickListener(new View.OnClickListener() {
@@ -105,6 +107,5 @@ public class SearchDonationsFragment extends Fragment {
             }
         });
     }
-
 
 }

@@ -19,9 +19,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.nowastenohunger.Activity.BottomNavigationMenuActivity;
 import com.example.nowastenohunger.Activity.SmsActivity;
 import com.example.nowastenohunger.Class.Post;
 import com.example.nowastenohunger.Class.UserPost;
+import com.example.nowastenohunger.Fragment.SearchDonationsFragment;
 import com.example.nowastenohunger.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -108,7 +110,7 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
             final String user_post = post.getPost();
             final String user_phone = post.getContact();
             final  String user_id = post.getUID();
-
+            System.out.println(user_id);
 
             holder.donatebtn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -122,8 +124,11 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.ViewHolder> {
                     messageToBeSent = user_post;
                     i.putExtra("p", phoneNumberOfWhoPosted);
                     i.putExtra("m", messageToBeSent);
+                    i.putExtra("UID",user_id);
                     mContext.startActivity(i);
-                    databaseReference.child(user_id).child("post").removeValue();
+                    //databaseReference.child(user_id).child("post").removeValue();
+                    //imageList.remove(position);
+                    //mPost.remove(position);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
