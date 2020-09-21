@@ -2,6 +2,13 @@
     <string name="app_name">NoWasteNoHunger</string>
     <string name="access_token">pk.eyJ1IjoibmF3cmluIiwiYSI6ImNrZTRsaTJvNjB1ZmwydnA4eW1jYmdtaWgifQ.4KjlhnEUimO_cGTUhPvfuA</string>
 
+    <string-array name="weights">
+        <item>kg</item>
+        <item>gm</item>
+        <item>pieces</item>
+        <item>liters</item>
+    </string-array>
+
     <string-array name="UserTypes">
         <item>Restaurant</item>
         <item>Individual</item>
