@@ -3,37 +3,39 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/idBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
-        android:id="@+id/idBar">
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:background="?android:attr/windowBackground">
 
         <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:id="@+id/toolBar">
+            android:background="@color/colorPrimary">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/makeDonationsFragmentTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Donate your Leftover"
-                    android:textSize="25sp"
-                    android:id="@+id/makeDonationsFragmentTextView"
-                    android:textColor="@android:color/white"/>
+                    android:textColor="@android:color/white"
+                    android:textSize="25sp" />
 
                 <ImageView
+                    android:id="@+id/options"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/options"
-                    android:src="@drawable/ic_more_items_menu"
                     android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20sp"
                     android:paddingTop="5sp"
-                    android:layout_marginEnd="20sp"/>
+                    android:src="@drawable/ic_more_items_menu"/>
 
             </RelativeLayout>
 
@@ -44,31 +46,59 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Enter Item name"
-            android:inputType="text"
             android:gravity="center_horizontal"
-            />
+            android:hint="Enter Item name"
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Enter amount"
-            android:inputType="number"
             android:gravity="center_horizontal"
-            />
+            android:hint="Enter amount"
+            android:inputType="number" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="132dp">
+
+
+            <EditText
+                android:id="@+id/location"
+                android:layout_width="281dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:hint="Location"
+                android:inputType="textMultiLine" />
+
+            <ImageView
+                android:id="@+id/confirmLocation"
+                android:layout_width="68dp"
+                android:layout_height="66dp"
+                android:layout_marginLeft="300dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/mapbox_compass_icon"
+                android:clickable="true"
+                android:text="" />
+
+        </RelativeLayout>
 
         <Button
             android:id="@+id/button"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:text="post"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
             android:onClick="post"
-            />
-
+            android:text="post" />
 
 
     </com.google.android.material.appbar.AppBarLayout>

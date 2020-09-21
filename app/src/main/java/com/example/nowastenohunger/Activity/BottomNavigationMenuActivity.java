@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.MenuItem;
@@ -30,7 +31,9 @@ public class BottomNavigationMenuActivity extends AppCompatActivity {
 
         BottomNavigationView b = findViewById(R.id.bottom_navigation_menu);
         b.setOnNavigationItemSelectedListener(navListener);
+
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SearchDonationsFragment()).commit();
+
 
         new CountDownTimer(3000, 1000) {
 
@@ -70,8 +73,14 @@ public class BottomNavigationMenuActivity extends AppCompatActivity {
                     selectedFragment = new MailFragment();
                     break;
             }
+
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
             return true;
         }
     };
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        }
 }

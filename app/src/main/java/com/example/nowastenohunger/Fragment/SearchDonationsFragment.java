@@ -2,11 +2,13 @@ package com.example.nowastenohunger.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,7 +16,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.nowastenohunger.Activity.BottomNavigationMenuActivity;
 import com.example.nowastenohunger.Activity.OptionsActivity;
+import com.example.nowastenohunger.Activity.SmsActivity;
 import com.example.nowastenohunger.Adapter.PostAdapter;
 import com.example.nowastenohunger.Class.Post;
 import com.example.nowastenohunger.R;
@@ -60,7 +64,6 @@ public class SearchDonationsFragment extends Fragment {
         imageURLList = new ArrayList<>();
         postAdapter = new PostAdapter(getContext(),postList, imageURLList);
         recyclerView.setAdapter(postAdapter);
-
         readPosts();  /* This method was used to check which user has 'post' key in Database. */
 
         options.setOnClickListener(new View.OnClickListener() {
@@ -84,10 +87,12 @@ public class SearchDonationsFragment extends Fragment {
                 for (DataSnapshot postsnapshot : dataSnapshot.getChildren())
                 {
                     String number = postsnapshot.child("number").getValue().toString();
+                    String id = postsnapshot.getKey();
                     Post post= postsnapshot.getValue(Post.class);
                     post.setContact(number);
                     System.out.println(post.getfullname());
                     System.out.println(post.getTime());
+                    post.setUID(id); //Getting UID from firebase.
                         if(post.getPost()!=null) {
                             postList.add(post);
                             imageURLList.add(postsnapshot.getKey());
@@ -102,6 +107,5 @@ public class SearchDonationsFragment extends Fragment {
             }
         });
     }
-
 
 }
